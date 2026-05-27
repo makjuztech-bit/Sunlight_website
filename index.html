@@ -1,0 +1,1569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunlight Future Creation – Integrated Facility Management Services</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Nunito:wght@300;400;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            /* Logo Colors */
+            --logo-blue: #0b2240;
+            /* Dark navy from the logo */
+            --logo-red: #e51c23;
+            /* Vibrant red from the logo */
+
+            /* Theme Colors (re-mapping old variables to new logo-inspired colors) */
+            --navy: #061426;
+            /* Deeper dark blue for page backgrounds */
+            --navy-mid: #0b2240;
+            /* Mid navy from the logo for sections and card backgrounds */
+            --sky: #133a6f;
+            /* Darker secondary blue */
+            --sky-light: #3b82f6;
+            /* Bright ice-blue for accents */
+            --white: #f8fafc;
+            /* High contrast white */
+            --gray: #94a3b8;
+            /* Muted text color */
+            --red: #c0392b;
+            /* Fallback dark red */
+
+            /* Mapping gold variables to red to seamlessly transition older styles */
+            --gold: var(--logo-red);
+            --gold-light: #ff6b70;
+            /* Soft red for highlight texts */
+        }
+
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--navy);
+            color: var(--white);
+            overflow-x: hidden;
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--navy);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--navy-mid);
+            border: 2px solid var(--navy);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--logo-red);
+        }
+
+        /* NAV */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(11, 34, 64, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 2px solid var(--logo-red);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 5%;
+            height: 70px;
+        }
+
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .nav-logo .logo-container {
+            width: 46px;
+            height: 46px;
+            background: #ffffff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            padding: 3px;
+            border: 2px solid var(--logo-red);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+        }
+
+        .nav-logo .logo-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .nav-logo .brand {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.15rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .brand span {
+            color: var(--logo-red);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 28px;
+        }
+
+        .nav-links a {
+            color: var(--gray);
+            font-size: 0.88rem;
+            font-weight: 600;
+            text-decoration: none;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--logo-red);
+        }
+
+        /* HERO REDESIGN */
+        .hero {
+            min-height: 100vh;
+            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #061426 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 5% 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(229, 28, 35, 0.08) 0%, transparent 70%);
+        }
+
+        .hero-grid {
+            position: absolute;
+            inset: 0;
+            opacity: 0.05;
+            background-image: linear-gradient(var(--sky-light) 1px, transparent 1px), linear-gradient(90deg, var(--sky-light) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .hero-inner {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+            max-width: 1100px;
+            width: 100%;
+            position: relative;
+            z-index: 2;
+            text-align: left;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 100%;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(229, 28, 35, 0.12);
+            border: 1px solid rgba(229, 28, 35, 0.4);
+            color: var(--gold-light);
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 18px;
+            border-radius: 20px;
+            margin-bottom: 28px;
+            animation: fadeDown 0.8s ease both;
+        }
+
+        .hero h1 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: clamp(2.4rem, 6vw, 4.2rem);
+            font-weight: 700;
+            line-height: 1.15;
+            animation: fadeUp 0.9s ease 0.1s both;
+        }
+
+        .hero h1 span {
+            color: var(--gold);
+        }
+
+        .hero-sub {
+            font-size: 1.05rem;
+            color: var(--gray);
+            margin: 18px 0 36px;
+            line-height: 1.7;
+            animation: fadeUp 0.9s ease 0.2s both;
+        }
+
+        .hero-btns {
+            display: flex;
+            gap: 16px;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            animation: fadeUp 0.9s ease 0.3s both;
+        }
+
+        .btn-primary {
+            background: var(--gold);
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.5px;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(229, 28, 35, 0.35);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: var(--white);
+            padding: 14px 32px;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            border: 2px solid rgba(255, 255, 255, 0.25);
+            cursor: pointer;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        .btn-outline:hover {
+            border-color: var(--sky-light);
+            color: var(--sky-light);
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 40px;
+            justify-content: flex-start;
+            flex-wrap: wrap;
+            margin-top: 60px;
+            animation: fadeUp 0.9s ease 0.45s both;
+        }
+
+        .hero-stat {
+            text-align: center;
+        }
+
+        .hero-stat .num {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--gold);
+        }
+
+        .hero-stat .lbl {
+            font-size: 0.78rem;
+            color: var(--gray);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .hero-image {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: fadeUp 1s ease 0.2s both;
+        }
+
+        .hero-img-wrapper {
+            position: relative;
+            border-radius: 20px;
+            padding: 10px;
+            background: linear-gradient(135deg, rgba(229, 28, 35, 0.15) 0%, rgba(8, 34, 64, 0.4) 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+
+        .hero-img-wrapper img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+            object-fit: cover;
+        }
+
+        .hero-img-badge {
+            position: absolute;
+            bottom: 24px;
+            left: -24px;
+            background: var(--navy-mid);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-left: 4px solid var(--logo-red);
+            padding: 12px 20px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-img-badge .badge-icon {
+            width: 32px;
+            height: 32px;
+            background: rgba(229, 28, 35, 0.15);
+            border-radius: 50%;
+            color: var(--logo-red);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+        }
+
+        .hero-img-badge h4 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.95rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .hero-img-badge p {
+            font-size: 0.75rem;
+            color: var(--gray);
+        }
+
+        /* SECTION COMMON */
+        section {
+            padding: 90px 5%;
+        }
+
+        .section-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: clamp(1.8rem, 4vw, 2.8rem);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .section-title span {
+            color: var(--sky-light);
+        }
+
+        .section-desc {
+            color: var(--gray);
+            line-height: 1.8;
+            max-width: 580px;
+            font-size: 0.97rem;
+        }
+
+        /* ABOUT */
+        .about {
+            background: var(--navy-mid);
+        }
+
+        .about-inner {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: start;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .about-img-box {
+            margin-top: 24px;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            height: 220px;
+        }
+
+        .about-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .about-img-box:hover img {
+            transform: scale(1.05);
+        }
+
+        .about-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+        }
+
+        .about-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 12px;
+            padding: 22px;
+            transition: border-color 0.3s, transform 0.3s;
+        }
+
+        .about-card:hover {
+            border-color: var(--logo-red);
+            transform: translateY(-4px);
+        }
+
+        .about-card .icon {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+        }
+
+        .about-card h4 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--gold-light);
+            margin-bottom: 6px;
+        }
+
+        .about-card p {
+            font-size: 0.84rem;
+            color: var(--gray);
+            line-height: 1.6;
+        }
+
+        /* SERVICES */
+        .services {
+            background: var(--navy);
+        }
+
+        .services-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 56px;
+        }
+
+        .services-header .section-desc {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .service-card {
+            background: var(--navy-mid);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 14px;
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--sky), var(--gold));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(229, 28, 35, 0.4);
+        }
+
+        .service-card:hover::before {
+            transform: scaleX(1);
+        }
+
+        .service-card .svc-icon {
+            font-size: 2.2rem;
+            margin-bottom: 16px;
+        }
+
+        .service-card h3 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: var(--white);
+        }
+
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .service-card ul li {
+            font-size: 0.84rem;
+            color: var(--gray);
+            padding: 5px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .service-card ul li::before {
+            content: '›';
+            color: var(--gold);
+            font-size: 1.1rem;
+            font-weight: 700;
+        }
+
+        /* GALLERY STYLE */
+        .gallery {
+            background: var(--navy-mid);
+        }
+
+        .gallery-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            aspect-ratio: 4 / 3;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(6, 20, 38, 0.95) 0%, rgba(6, 20, 38, 0.2) 60%, transparent 100%);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 24px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        .gallery-overlay h4 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 4px;
+        }
+
+        .gallery-overlay p {
+            font-size: 0.85rem;
+            color: var(--gray);
+        }
+
+        /* MANPOWER */
+        .manpower {
+            background: var(--navy-mid);
+        }
+
+        .manpower-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 64px;
+            align-items: start;
+        }
+
+        .manpower-list {
+            display: grid;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .mp-item {
+            background: rgba(255, 255, 255, 0.04);
+            border-left: 3px solid var(--sky-light);
+            border-radius: 0 10px 10px 0;
+            padding: 14px 20px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: var(--white);
+            transition: background 0.2s, border-color 0.2s;
+        }
+
+        .mp-item:hover {
+            background: rgba(59, 130, 246, 0.15);
+            border-color: var(--logo-red);
+        }
+
+        .billing-box {
+            background: linear-gradient(135deg, rgba(19, 58, 111, 0.2), rgba(229, 28, 35, 0.06));
+            border: 1px solid rgba(229, 28, 35, 0.3);
+            border-radius: 16px;
+            padding: 32px;
+            margin-top: 28px;
+        }
+
+        .billing-box h3 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.4rem;
+            color: var(--gold);
+            margin-bottom: 20px;
+        }
+
+        .billing-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+        }
+
+        .billing-row:last-child {
+            border-bottom: none;
+        }
+
+        .billing-row .bkey {
+            font-size: 0.88rem;
+            color: var(--gray);
+        }
+
+        .billing-row .bval {
+            font-weight: 700;
+            color: var(--gold-light);
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.05rem;
+        }
+
+        .billing-note {
+            margin-top: 16px;
+            font-size: 0.8rem;
+            color: var(--gray);
+            line-height: 1.6;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        /* COMPLIANCE */
+        .compliance {
+            background: var(--navy);
+        }
+
+        .compliance-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .compliance-header {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+
+        .compliance-header .section-desc {
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .reg-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 16px;
+            margin-bottom: 40px;
+        }
+
+        .reg-card {
+            background: var(--navy-mid);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 12px;
+            padding: 20px 22px;
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .reg-card:hover {
+            border-color: var(--sky-light);
+        }
+
+        .reg-card .reg-icon {
+            width: 40px;
+            height: 40px;
+            background: rgba(59, 130, 246, 0.15);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .reg-card .reg-key {
+            font-size: 0.7rem;
+            color: var(--gray);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+
+        .reg-card .reg-val {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--gold-light);
+        }
+
+        .laws-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 10px;
+        }
+
+        .law-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 0.84rem;
+            color: var(--gray);
+            display: flex;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .law-item::before {
+            content: '✓';
+            color: var(--sky-light);
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        /* TERMS */
+        .terms {
+            background: var(--navy-mid);
+        }
+
+        .terms-inner {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .terms-list {
+            display: grid;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .term-item {
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 10px;
+            padding: 16px 20px;
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            font-size: 0.9rem;
+            color: #c0ccd8;
+            line-height: 1.65;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .term-item .t-num {
+            width: 26px;
+            height: 26px;
+            background: var(--logo-red);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        /* CONTACT */
+        .contact {
+            background: var(--navy);
+        }
+
+        .contact-inner {
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .contact-info {
+            display: grid;
+            gap: 20px;
+            margin-top: 28px;
+        }
+
+        .ci-item {
+            display: flex;
+            gap: 16px;
+            align-items: flex-start;
+        }
+
+        .ci-icon {
+            width: 44px;
+            height: 44px;
+            background: rgba(229, 28, 35, 0.12);
+            border: 1px solid rgba(229, 28, 35, 0.3);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .ci-label {
+            font-size: 0.72rem;
+            color: var(--gray);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 3px;
+        }
+
+        .ci-value {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .ci-value a {
+            color: var(--sky-light);
+            text-decoration: none;
+        }
+
+        .ci-value a:hover {
+            color: var(--gold);
+        }
+
+        .contact-form {
+            background: var(--navy-mid);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 30px;
+        }
+
+        .contact-form h3 {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--gold);
+        }
+
+        .form-group {
+            margin-bottom: 16px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 700;
+            letter-spacing: 0.8px;
+            text-transform: uppercase;
+            color: var(--gray);
+            margin-bottom: 7px;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            padding: 11px 14px;
+            color: var(--white);
+            font-family: 'Nunito', sans-serif;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            border-color: var(--sky-light);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        .form-group select option {
+            background: var(--navy-mid);
+        }
+
+        /* FOOTER */
+        footer {
+            background: #040d1a;
+            border-top: 2px solid rgba(229, 28, 35, 0.3);
+            padding: 40px 5% 24px;
+            text-align: center;
+        }
+
+        .footer-logo {
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .footer-logo span {
+            color: var(--gold);
+        }
+
+        .footer-tagline {
+            font-size: 0.82rem;
+            color: var(--gray);
+            margin-bottom: 20px;
+        }
+
+        .footer-copy {
+            font-size: 0.75rem;
+            color: rgba(138, 155, 176, 0.5);
+        }
+
+        /* ANIMATIONS */
+        @keyframes fadeDown {
+            from {
+                opacity: 0;
+                transform: translateY(-16px);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: none;
+            }
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .hero-inner {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-btns,
+            .hero-stats {
+                justify-content: center;
+            }
+
+            .hero-image {
+                margin-top: 40px;
+            }
+
+            .hero-img-badge {
+                left: 20px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .about-inner,
+            .manpower-inner,
+            .contact-inner {
+                grid-template-columns: 1fr;
+                gap: 36px;
+            }
+
+            .about-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .gallery-overlay {
+                opacity: 1;
+                background: linear-gradient(to top, rgba(6, 20, 38, 0.95) 0%, rgba(6, 20, 38, 0.4) 80%);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav>
+        <div class="nav-logo">
+            <div class="logo-container">
+                <img src="sunlight logo.jpeg" alt="Sunlight Future Creation Logo">
+            </div>
+            <div class="brand"><span>SUNLIGHT</span> FUTURE CREATION</div>
+        </div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#services">Services</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#manpower">Manpower</a>
+            <a href="#contact">Contact</a>
+            <a href="#career">Career</a>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero" id="home">
+        <div class="hero-grid"></div>
+        <div class="hero-inner">
+            <div class="hero-content">
+                <div class="hero-badge">Integrated Facility Management Services</div>
+                <h1>Your Trusted Partner in <span>Workforce Solutions</span></h1>
+                <p class="hero-sub">Competent, quality-conscious and dedicated skilled, semi-skilled and unskilled human
+                    resources — serving manufacturing and service industries across Tamil Nadu.</p>
+                <div class="hero-btns">
+                    <a href="#services" class="btn-primary">Explore Services</a>
+                    <a href="#contact" class="btn-outline">Get In Touch</a>
+                </div>
+                <div class="hero-stats">
+                    <div class="hero-stat">
+                        <div class="num">ESI</div>
+                        <div class="lbl">Registered</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="num">EPF</div>
+                        <div class="lbl">Compliant</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="num">GST</div>
+                        <div class="lbl">Certified</div>
+                    </div>
+                    <div class="hero-stat">
+                        <div class="num">WC</div>
+                        <div class="lbl">Act Covered</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="hero-img-wrapper">
+                    <img src="faculty management.jpeg" alt="Facility Management and Workforce Solutions Team">
+                    <div class="hero-img-badge">
+                        <div class="badge-icon">✓</div>
+                        <div>
+                            <h4>100% Compliant</h4>
+                            <p>Labor law certified</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+        <div class="about-inner">
+            <div>
+                <div class="section-label">Who We Are</div>
+                <h2 class="section-title">Mission, Quality & <span>Environment</span></h2>
+                <p class="section-desc">Sunlight Future Creation is a registered multi-faced facility management and
+                    outsourcing consultancy. We care for our people — motivating, training, and developing them to their
+                    full potential. We also care deeply for the environment and strive towards meaningful, cleaner
+                    operations for every client we serve.</p>
+                <p class="section-desc" style="margin-top:14px;">Our quality policy is simple: timely supply of quality
+                    human resources as per requirement, on mutually agreed standards — ensuring and enhancing customer
+                    satisfaction every time.</p>
+                <div class="about-img-box">
+                    <img src="advance manufacturing operators.jpeg"
+                        alt="Advanced Manufacturing & Engineering operations">
+                </div>
+            </div>
+            <div class="about-cards">
+                <div class="about-card">
+                    <div class="icon">🏭</div>
+                    <h4>Advanced Manufacturing</h4>
+                    <p>Supporting production lines with skilled and semi-skilled operators.</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon">⚙️</div>
+                    <h4>Engineering Excellence</h4>
+                    <p>ITI & diploma-qualified workforce for technical requirements.</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon">👥</div>
+                    <h4>People Commitment</h4>
+                    <p>Uniforms, insurance, safety training & welfare for all personnel.</p>
+                </div>
+                <div class="about-card">
+                    <div class="icon">🌿</div>
+                    <h4>Environment First</h4>
+                    <p>Reducing pollution, conserving water & energy at client premises.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="services" id="services">
+        <div class="services-inner">
+            <div class="services-header">
+                <div class="section-label">What We Offer</div>
+                <h2 class="section-title">Our <span>Core Services</span></h2>
+                <p class="section-desc">End-to-end outsourcing and facility management solutions tailored to
+                    manufacturing and service industries.</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="svc-icon">🧹</div>
+                    <h3>Housekeeping & Environment</h3>
+                    <ul>
+                        <li>Industrial housekeeping</li>
+                        <li>Waste management</li>
+                        <li>Environmental upkeep</li>
+                        <li>Premises maintenance</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="svc-icon">🔧</div>
+                    <h3>Technical Manpower</h3>
+                    <ul>
+                        <li>Fitter, Welder, Turner</li>
+                        <li>Electrician & Mechanic</li>
+                        <li>Diploma engineers</li>
+                        <li>DME / DEEE / DECE / DCE</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="svc-icon">🏗️</div>
+                    <h3>Production & Operations</h3>
+                    <ul>
+                        <li>Machine operators</li>
+                        <li>Packing & branding</li>
+                        <li>Labeling & finishing</li>
+                        <li>Forklift operators</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="svc-icon">🛡️</div>
+                    <h3>Security Services</h3>
+                    <ul>
+                        <li>Trained security guards</li>
+                        <li>Access control</li>
+                        <li>Shift-based coverage</li>
+                        <li>Safety-oriented team</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="svc-icon">💼</div>
+                    <h3>Supervisory & Support</h3>
+                    <ul>
+                        <li>Supervisors & drivers</li>
+                        <li>Painters & helpers</li>
+                        <li>Data entry operators</li>
+                        <li>Computer operators</li>
+                    </ul>
+                </div>
+                <div class="service-card">
+                    <div class="svc-icon">📦</div>
+                    <h3>General Workforce</h3>
+                    <ul>
+                        <li>Unskilled workmen</li>
+                        <li>10th / 12th pass candidates</li>
+                        <li>Contract labor supply</li>
+                        <li>Replacement assurance</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- GALLERY / SHOWCASE -->
+    <section class="gallery" id="gallery">
+        <div class="gallery-inner">
+            <div class="services-header">
+                <div class="section-label">Gallery</div>
+                <h2 class="section-title">Our Workforce <span>in Action</span></h2>
+                <p class="section-desc">Real-world glimpses of our housekeeping teams, advanced manufacturing personnel,
+                    and technical manpower operating at top standards.</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item">
+                    <img src="staff.jpeg" alt="Facility Management Staff">
+                    <div class="gallery-overlay">
+                        <h4>Professional Workforce</h4>
+                        <p>Dedicated team ready for deployment</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="manufacturing.jpeg" alt="Manufacturing Operators">
+                    <div class="gallery-overlay">
+                        <h4>Technical & Manufacturing</h4>
+                        <p>Skilled operators on advanced assembly lines</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="house keeping.jpeg" alt="Housekeeping Staff">
+                    <div class="gallery-overlay">
+                        <h4>Housekeeping & Cleaning</h4>
+                        <p>Spotless corporate and industrial upkeep</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- MANPOWER + BILLING -->
+    <section class="manpower" id="manpower">
+        <div class="manpower-inner">
+            <div>
+                <div class="section-label">Workforce Profiles</div>
+                <h2 class="section-title">Contract <span>Manpower</span> We Provide</h2>
+                <p class="section-desc">We supply workforce on a contract basis across all skill levels, fully trained
+                    in safety, discipline, and quality standards before deployment.</p>
+                <div class="manpower-list">
+                    <div class="mp-item">🔩 Fitter · Welder · Turner · Electrician · Mechanic (ITI)</div>
+                    <div class="mp-item">📐 Diploma Engineers — DME, DEEE, DECE, DCE</div>
+                    <div class="mp-item">🔰 Unskilled Workmen (10th / 12th Std)</div>
+                    <div class="mp-item">🚛 Drivers · Forklift Operators · Painters · Helpers</div>
+                    <div class="mp-item">🖥️ Computer Operators · Data Entry Operators</div>
+                    <div class="mp-item">🔒 Security Personnel — Trained & Certified</div>
+                    <div class="mp-item">📋 Supervisors for All Operational Departments</div>
+                </div>
+
+            </div>
+
+
+    </section>
+
+
+    <!-- CAREERS SECTION -->
+
+    <div class="careers-inner" style="max-width:600px;margin:0 auto;">
+        <div class="section-label" style="margin-top:4em;">Opportunities</div>
+        <h2 class="section-title">Join Our <span>Team</span></h2>
+        <p class="section-desc">We welcome talented interns and professionals. Fill the appropriate form
+            below.</p>
+        <!-- Internship Form -->
+        <div class="career-form" style="margin-top:40px;">
+            <h3>Internship Application</h3>
+            <form id="internshipForm" action="https://api.web3forms.com/submit" method="POST"
+                enctype="multipart/form-data">
+                <input type="hidden" name="access_key" value="702a3452-784f-4613-918f-f6b4832b3aa3">
+                <input type="hidden" name="subject" value="New Internship Application">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="Name" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="Email" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" name="Phone" placeholder="+91 XXXXX XXXXX" required>
+                </div>
+                <div class="form-group">
+                    <label>College / University</label>
+                    <input type="text" name="College" placeholder="College Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Course / Stream</label>
+                    <input type="text" name="Course" placeholder="Course / Stream" required>
+                </div>
+                <div class="form-group">
+                    <label>Duration (months)</label>
+                    <input type="number" name="Duration" placeholder="e.g., 3" min="1" required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea name="Message" placeholder="Tell us why you are a good fit..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width:100%;border:none;">Submit
+                    Internship</button>
+            </form>
+        </div>
+        <!-- Application Form -->
+        <div class="career-form" style="margin-top:60px;">
+            <h3>Job Application</h3>
+            <form id="applicationForm" action="https://api.web3forms.com/submit" method="POST"
+                enctype="multipart/form-data">
+                <input type="hidden" name="access_key" value="702a3452-784f-4613-918f-f6b4832b3aa3">
+                <input type="hidden" name="subject" value="New Job Application">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" name="Name" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" name="Email" placeholder="you@example.com" required>
+                </div>
+                <div class="form-group">
+                    <label>Phone</label>
+                    <input type="tel" name="Phone" placeholder="+91 XXXXX XXXXX" required>
+                </div>
+                <div class="form-group">
+                    <label>Position Applied For</label>
+                    <select name="Position" required>
+                        <option value="">Select Position...</option>
+                        <option>Technical Manpower</option>
+                        <option>Housekeeping Services</option>
+                        <option>Security Services</option>
+                        <option>Production Operations</option>
+                        <option>Supervisory & Support</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Resume (PDF)</label>
+                    <input type="file" name="Resume" accept="application/pdf" required>
+                </div>
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea name="Message" placeholder="Why you are the right fit..." required></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="width:100%;border:none;">Submit
+                    Application</button>
+            </form>
+        </div>
+    </div>
+    </section>
+    <script>
+        // Internship form handler
+        document.getElementById('internshipForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const form = this; const btn = form.querySelector('button[type="submit"]'); const txt = btn.textContent; btn.disabled = true; btn.textContent = 'Sending...';
+            const fd = new FormData(form);
+            fetch(form.action, { method: 'POST', body: fd, headers: { Accept: 'application/json' } })
+                .then(r => r.json())
+                .then(resp => { alert('Internship submitted successfully!'); form.reset(); })
+                .catch(err => { console.error(err); alert('Error sending internship.'); })
+                .finally(() => { btn.disabled = false; btn.textContent = txt; });
+        });
+        // Application form handler
+        document.getElementById('applicationForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const form = this; const btn = form.querySelector('button[type="submit"]'); const txt = btn.textContent; btn.disabled = true; btn.textContent = 'Sending...';
+            const fd = new FormData(form);
+            fetch(form.action, { method: 'POST', body: fd, headers: { Accept: 'application/json' } })
+                .then(r => r.json())
+                .then(resp => { alert('Job application submitted!'); form.reset(); })
+                .catch(err => { console.error(err); alert('Error sending application.'); })
+                .finally(() => { btn.disabled = false; btn.textContent = txt; });
+        });
+    </script>
+    <div class="ci-item">
+    </div>
+    </div>
+    </div>
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+        <div class="contact-inner">
+            <div>
+                <div class="section-label">Get In Touch</div>
+                <h2 class="section-title">Let's Work <span>Together</span></h2>
+                <p class="section-desc">Looking for reliable facility management and manpower services? Reach out to us
+                    and we'll get back to you with the best solution for your needs.</p>
+                <div class="contact-info">
+                    <div class="ci-item">
+                        <div class="ci-icon">📍</div>
+                        <div>
+                            <div class="ci-label">Registered Office</div>
+                            <div class="ci-value">Plot No.50 ST-04, Mariyamman Kovil Street,<br>Vallapakkam,
+                                Walajabad,<br>Kancheepuram – 631605</div>
+                        </div>
+                    </div>
+
+                    <div class="ci-item">
+                        <div class="ci-icon">✉️</div>
+                        <div>
+                            <div class="ci-label">Email</div>
+                            <div class="ci-value"><a
+                                    href="mailto:recruitment@sunlightfutures.com">recruitment@sunlightfutures.com</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="ci-item">
+                        <div class="ci-icon">☎️</div>
+                        <div>
+                            <div class="ci-label">Phone</div>
+                            <div class="ci-value"><a href="tel:+916384528618">+91 63845 28618</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="contact-form">
+                        <h3>Send an Enquiry</h3>
+                        <form id="enquiryForm" action="https://api.web3forms.com/submit" method="POST">
+                            <!-- Replace the access_key value below with your Web3Forms Access Key -->
+                            <input type="hidden" name="access_key" value="702a3452-784f-4613-918f-f6b4832b3aa3">
+                            <input type="hidden" name="subject" value="New Sunlight Future Creation Enquiry!">
+                            <input type="hidden" name="from_name" value="Sunlight Future Creation">
+
+                            <div class="form-group">
+                                <label>Your Name</label>
+                                <input type="text" name="Name" placeholder="Full Name" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number</label>
+                                <input type="tel" name="Phone" placeholder="+91 XXXXX XXXXX" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Company</label>
+                                <input type="text" name="Company" placeholder="Company / Organization">
+                            </div>
+                            <div class="form-group">
+                                <label>Service Required</label>
+                                <select name="Service" required>
+                                    <option value="">Select a service...</option>
+                                    <option>Skilled Manpower (ITI/Diploma)</option>
+                                    <option>Unskilled / General Labour</option>
+                                    <option>Housekeeping Services</option>
+                                    <option>Security Services</option>
+                                    <option>Production Operators</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Message</label>
+                                <textarea name="Message" placeholder="Describe your requirement..." required></textarea>
+                            </div>
+                            <button type="submit" class="btn-primary" style="width:100%;border:none;">Send
+                                Enquiry</button>
+                        </form>
+                    </div>
+                </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-logo"><span>SUNLIGHT</span> FUTURE CREATION</div>
+        <div class="footer-tagline">Integrated Facility Management Services · Kancheepuram, Tamil Nadu</div>
+        <div class="footer-copy">© 2025 Sunlight Future Creation. </div>
+    </footer>
+
+    <script>
+        document.getElementById('enquiryForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const form = this;
+            const button = form.querySelector('button[type="submit"]');
+            const originalText = button.textContent;
+
+            // Change button state to loading
+            button.disabled = true;
+            button.textContent = 'Sending...';
+
+            const formData = new FormData(form);
+            const object = Object.fromEntries(formData);
+            const json = JSON.stringify(object);
+
+            fetch(form.action, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: json
+            })
+                .then(async (response) => {
+                    let jsonResponse = await response.json();
+                    if (response.status == 200) {
+                        alert('Thank you! Your enquiry has been sent successfully. We will get back to you shortly.');
+                        form.reset();
+                    } else {
+                        console.log(response);
+                        alert(jsonResponse.message || 'Oops! There was a problem sending your enquiry. Please try again.');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Oops! There was a connection issue. Please try again.');
+                })
+                .finally(() => {
+                    button.disabled = false;
+                    button.textContent = originalText;
+                });
+        });
+    </script>
+
+</body>
+
+</html>
