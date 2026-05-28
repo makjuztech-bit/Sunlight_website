@@ -12,30 +12,25 @@
         :root {
             /* Logo Colors */
             --logo-blue: #0b2240;
-            /* Dark navy from the logo */
             --logo-red: #e51c23;
-            /* Vibrant red from the logo */
 
-            /* Theme Colors (re-mapping old variables to new logo-inspired colors) */
-            --navy: #061426;
-            /* Deeper dark blue for page backgrounds */
-            --navy-mid: #0b2240;
-            /* Mid navy from the logo for sections and card backgrounds */
-            --sky: #133a6f;
-            /* Darker secondary blue */
-            --sky-light: #3b82f6;
-            /* Bright ice-blue for accents */
-            --white: #f8fafc;
-            /* High contrast white */
-            --gray: #94a3b8;
-            /* Muted text color */
+            /* Elegant page palette */
+            --page-bg: radial-gradient(circle at 14% 18%, rgba(96, 165, 250, 0.14), transparent 20%),
+                radial-gradient(circle at 86% 12%, rgba(236, 72, 153, 0.12), transparent 18%),
+                linear-gradient(135deg, #eef2ff 0%, #f8fafc 46%, #ffffff 100%);
+            --surface: rgba(255, 255, 255, 0.92);
+            --surface-soft: rgba(248, 250, 252, 0.95);
+            --navy: var(--page-bg);
+            --navy-mid: var(--surface);
+            --sky: #2563eb;
+            --sky-light: #93c5fd;
+            --white: #0f1724;
+            --gray: #4b5563;
             --red: #c0392b;
-            /* Fallback dark red */
 
-            /* Mapping gold variables to red to seamlessly transition older styles */
+            /* Keep high-contrast brand highlights */
             --gold: var(--logo-red);
             --gold-light: #ff6b70;
-            /* Soft red for highlight texts */
         }
 
         *,
@@ -55,6 +50,7 @@
             background: var(--navy);
             color: var(--white);
             overflow-x: hidden;
+            min-height: 100vh;
         }
 
         /* Custom Scrollbar */
@@ -82,9 +78,9 @@
             top: 0;
             width: 100%;
             z-index: 100;
-            background: rgba(11, 34, 64, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 2px solid var(--logo-red);
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(37, 99, 235, 0.14);
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -151,7 +147,7 @@
         /* HERO REDESIGN */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 60%, #061426 100%);
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.12) 0%, rgba(236, 72, 153, 0.08) 40%, rgba(255, 255, 255, 0.92) 100%);
             display: flex;
             align-items: center;
             justify-content: center;
@@ -164,7 +160,8 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(ellipse 80% 60% at 50% 40%, rgba(229, 28, 35, 0.08) 0%, transparent 70%);
+            background: radial-gradient(circle at 25% 20%, rgba(96, 165, 250, 0.18) 0%, transparent 28%),
+                radial-gradient(circle at 78% 18%, rgba(236, 72, 153, 0.12) 0%, transparent 24%);
         }
 
         .hero-grid {
@@ -237,7 +234,7 @@
         }
 
         .btn-primary {
-            background: var(--gold);
+            background: #2563eb;
             color: var(--white);
             padding: 14px 32px;
             border-radius: 8px;
@@ -247,12 +244,13 @@
             text-decoration: none;
             border: none;
             cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s, box-shadow 0.2s, background-color 0.2s;
         }
 
         .btn-primary:hover {
+            background: #1d4ed8;
             transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(229, 28, 35, 0.35);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.35);
         }
 
         .btn-outline {
@@ -263,7 +261,7 @@
             font-weight: 700;
             font-size: 0.95rem;
             text-decoration: none;
-            border: 2px solid rgba(255, 255, 255, 0.25);
+            border: 2px solid rgba(190, 162, 162, 0.25);
             cursor: pointer;
             transition: border-color 0.2s, color 0.2s;
         }
@@ -472,7 +470,7 @@
 
         /* SERVICES */
         .services {
-            background: var(--navy);
+            background: var(--surface-soft);
         }
 
         .services-inner {
@@ -661,7 +659,7 @@
         }
 
         .mp-item:hover {
-            background: rgba(59, 130, 246, 0.15);
+            background: rgba(131, 146, 170, 0.15);
             border-color: var(--logo-red);
         }
 
@@ -716,7 +714,7 @@
 
         /* COMPLIANCE */
         .compliance {
-            background: var(--navy);
+            background: var(--surface-soft);
         }
 
         .compliance-inner {
@@ -854,7 +852,7 @@
 
         /* CONTACT */
         .contact {
-            background: var(--navy);
+            background: var(--surface-soft);
         }
 
         .contact-inner {
@@ -1079,7 +1077,7 @@
             <div class="logo-container">
                 <img src="sunlight logo.jpeg" alt="Sunlight Future Creation Logo">
             </div>
-            <div class="brand"><span>SUNLIGHT</span> FUTURE CREATION</div>
+            <div class="brand"><span>SUNLIGHT</span> <span style="color:black;">FUTURE CREATION</span></div>
         </div>
         <div class="nav-links">
             <a href="#about">About</a>
@@ -1156,29 +1154,7 @@
                         alt="Advanced Manufacturing & Engineering operations">
                 </div>
             </div>
-            <div class="about-cards">
-                <div class="about-card">
-                    <div class="icon">🏭</div>
-                    <h4>Advanced Manufacturing</h4>
-                    <p>Supporting production lines with skilled and semi-skilled operators.</p>
-                </div>
-                <div class="about-card">
-                    <div class="icon">⚙️</div>
-                    <h4>Engineering Excellence</h4>
-                    <p>ITI & diploma-qualified workforce for technical requirements.</p>
-                </div>
-                <div class="about-card">
-                    <div class="icon">👥</div>
-                    <h4>People Commitment</h4>
-                    <p>Uniforms, insurance, safety training & welfare for all personnel.</p>
-                </div>
-                <div class="about-card">
-                    <div class="icon">🌿</div>
-                    <h4>Environment First</h4>
-                    <p>Reducing pollution, conserving water & energy at client premises.</p>
-                </div>
-            </div>
-        </div>
+           
     </section>
 
     <!-- SERVICES -->
